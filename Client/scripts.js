@@ -2,7 +2,6 @@
 let currentId;
 
 const myForm = document.getElementById("myForm");
-
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const postM = document.querySelectorAll(".show");
@@ -34,10 +33,11 @@ const renderMovie = function (data) {
     tableBody += `
               <tr>
                 <td id="movie-id" style="display:none">${data[i].id}</td>
-                <td id="movie-title">${data[i].name}</td>
-                <td id="movie-genre">${data[i].genre}</td>
+                <td id="movie-title ${data[i].id}">${data[i].name}</td>
+                <td id="movie-genre ${data[i].id}">${data[i].genre}</td>
                 <td>
-                  <button onclick="updateCurrentId(${data[i].id});openUpdateModal();showValues();" class="show-modal" id="update-movie" style="background-color:#1e81d3">
+                  <button onclick="updateCurrentId(${data[i].id});
+                  openUpdateModal();showValues();" class="show-modal" id="update-movie" style="background-color:#1e81d3">
                     Update Movie
                   </button>
                   <button onclick="deleteMovieById(${data[i].id})" id="delete-movie" style="background-color:rgb(206, 87, 50)">
@@ -76,10 +76,9 @@ function showValues() {
 
 function initializeField() {
   const data = {
-    name: document.getElementById("movie-title").textContent,
-    genre: document.getElementById("movie-genre").textContent,
+    name: document.getElementById(`movie-title ${currentId}`).textContent,
+    genre: document.getElementById(`movie-genre ${currentId}`).textContent,
   };
-  console.log(data);
   return data;
 }
 
@@ -93,6 +92,7 @@ function getFieldValue() {
 
 function updateCurrentId(id) {
   currentId = id;
+  
 }
 
 const editBtn = document.getElementById("edit");
@@ -117,6 +117,7 @@ async function updateMovieById() {
     });
   await getAllMovies();
   document.myForm.reset();
+  closeModal();
 }
 
 const openCreateModal = function () {
