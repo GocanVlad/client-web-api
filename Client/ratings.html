@@ -25,6 +25,29 @@
         </div>
     </nav>
     <div id="div1"></div>
+
+    <table>
+      <tr>
+        <div class="modal hidden">
+          <form name="myForm" id="myForm">
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" /><br /><br />
+            <label for="description">Description: </label>
+            <input type="text" id="description" name="description" /><br /><br />
+            <input type="submit" id="submit" value="Submit" />
+            <input type="button" id="edit" value="EDIT" />
+          </form>
+        </div>
+        <div class="overlay hidden"></div>
+      </tr>
+    </table>
+
+    <div id="output">
+      <button onclick="openCreateModal()" class="show-modal" id="create-rating">
+        Create Rating
+      </button>
+    </div>
+
     <table>
       <thead>
         <th>Name</th>
@@ -33,10 +56,6 @@
       </thead>
       <tbody id="rating-table"></tbody>
     </table>
-    
-    <div id="div2"></div>
-    
-    <p></p>
   </body>
   <script  src="scriptRating.js"></script>
 </html>

@@ -5,6 +5,8 @@ const myForm = document.getElementById("myForm");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const postM = document.querySelectorAll(".show");
+const editBtn = document.getElementById("edit");
+editBtn.addEventListener("click", updateMovieById);
 
 const baseUrl = "http://localhost:1028/api/movies/";
 
@@ -92,11 +94,7 @@ function getFieldValue() {
 
 function updateCurrentId(id) {
   currentId = id;
-  
 }
-
-const editBtn = document.getElementById("edit");
-editBtn.addEventListener("click", updateMovieById);
 
 async function updateMovieById() {
   document.getElementById("movie-id");
