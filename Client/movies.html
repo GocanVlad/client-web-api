@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Movie Store</title>
+  </head>
+  <body>
+    <marquee behavior="scroll" direction="left"
+      >WELCOME TO MOVIE STORE 🎥</marquee
+    >
+    <nav class="navbar">
+      <div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+            <ul>
+              <li><a id="home" href="home.html">Home</a></li>
+              <li><a id="get-movies" href="movies.html">Get Movies</a></li>
+              <li><a id="ratings" href="ratings.html">Ratings</a></li>
+            </ul>
+          </div>
+          <p></p>
+          <div></div>
+        </div>
+      </div>
+    </nav>
+    <table>
+      <tr>
+        <div class="modal hidden">
+          <form name="myForm" id="myForm">
+            <label for="title">Title: </label>
+            <input type="text" id="title" name="title" /><br /><br />
+            <label for="genre">Genre: </label>
+            <input type="text" id="genre" name="genre" /><br /><br />
+            <input type="submit" id="submit" value="Submit" />
+            <input type="button" id="edit" value="EDIT" />
+          </form>
+        </div>
+        <div class="overlay hidden"></div>
+      </tr>
+    </table>
+
+    <div id="output">
+      <button onclick="openCreateModal()" class="show-modal" id="create-movie">
+        Create Movie
+      </button>
+    </div>
+
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Actions</th>
+      </thead>
+      <tbody id="movie-table"></tbody>
+    </table>
+  </body>
+  <script src="scripts.js"></script>
+</html>
